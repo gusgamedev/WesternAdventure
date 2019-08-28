@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sprites/level/ground.png" type="Texture" id=1]
+[ext_resource path="res://assets/scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/scenes/enemy01.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 640.493, 53.6289 )
+
+[node name="level01" type="Node2D"]
+
+[node name="ground" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 639.77, 666.717 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="body" type="StaticBody2D" parent="ground"]
+editor/display_folded = true
+
+[node name="collision" type="CollisionShape2D" parent="ground/body"]
+position = Vector2( -1.36035, 4.53082 )
+shape = SubResource( 1 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 631.25, 545.75 )
+
+[node name="enemy01" parent="." instance=ExtResource( 3 )]
+position = Vector2( 159.284, 486.347 )
